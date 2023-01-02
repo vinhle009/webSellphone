@@ -1,0 +1,137 @@
+body {
+    margin: 0;
+    font-family: Roboto,Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    color: #212529;
+    text-align: left;
+    background-color: #fff;
+    position: relative;
+    overflow-x: hidden;
+}
+/* Path: src\main\resources\static\css\header.css */
+.header-top{
+    height: 57px;
+    background-color:#cd1818 ;
+}
+.h-icon{
+    height: 100%;
+    float: left;
+}
+.h-icon img{
+    height: 100%;
+    float: right;
+    margin-right: 25px;
+}
+.h-search{
+    height: 100%;
+}
+.h-search input{
+    height: 100%;
+    width: 90%;  
+    border: none;
+    border-top-left-radius: 2x;
+    border-bottom-left-radius: 2px;
+    margin-top: auto;
+    padding: 0.8em 0.5em 0.8em 1em;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+}
+.h-search button{
+    width: 10%;
+    height: 100%;
+    display: inline-block;
+    top: 0;
+    right: 0;
+    border: none;
+    background: #333;
+    border-radius: 0 2px 2px 0;
+    margin-top: 0.5em;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    padding: 0.3em 0em 0.4em 0em;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+.h-search button i{
+    color: #fff;
+    font-size: 23px;
+    opacity: 0.9;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+}
+.h-search button i:hover{
+    color: #a00f99;
+}
+
+.h-search i{
+    margin-top: 0.2em;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    font-size: 23px;
+    opacity: 0.9;
+    
+}
+
+.h-search input {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  outline: 0;
+}
+
+.h-button{
+    height: 100%;
+}
+.h-button ul{
+    height: 100%;
+    width: 80%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+}
+.h-button ul li{
+    height: 100%;
+    float: left;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+.h-button ul li a{
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5em 1em;
+    font-size: 14px;
+    opacity: 0.9;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.h-button ul li a:hover{
+    color: #a00f99;
+}
+.h-button ul li a i{
+    font-size: 20px;
+}
+.nav-link{
+    margin-left: 1rem;
+    margin-right: 1rem;
+    color: #fff!important;
+    font-size: 14px;
+    opacity: 0.9;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.nav-link:hover{
+    color: #a00f99!important;
+}
+
+
+
