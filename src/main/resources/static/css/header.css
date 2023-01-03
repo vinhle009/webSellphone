@@ -9,129 +9,93 @@ body {
     background-color: #fff;
     position: relative;
     overflow-x: hidden;
+    font-family:Arial, Helvetica, sans-serif;
 }
 /* Path: src\main\resources\static\css\header.css */
-.header-top{
-    height: 57px;
-    background-color:#cd1818 ;
+.navbar-expand-lg{
+    background-color: #cd1817 !important;
+    height: 57px !important;
 }
-.h-icon{
-    height: 100%;
-    float: left;
+.navbar{
+    background-color: #cd1817 !important;
 }
-.h-icon img{
-    height: 100%;
+.navbar-brand{
     float: right;
-    margin-right: 25px;
+    margin-left: 120px;
+    height: 57px !important;
 }
-.h-search{
-    height: 100%;
-}
-.h-search input{
-    height: 100%;
-    width: 90%;  
-    border: none;
-    border-top-left-radius: 2x;
-    border-bottom-left-radius: 2px;
-    margin-top: auto;
-    padding: 0.8em 0.5em 0.8em 1em;
-    -webkit-transition: all 0.5s;
-    transition: all 0.5s;
-}
-.h-search button{
-    width: 10%;
-    height: 100%;
-    display: inline-block;
-    top: 0;
-    right: 0;
-    border: none;
-    background: #333;
-    border-radius: 0 2px 2px 0;
-    margin-top: 0.5em;
-    border-top-right-radius: 4px;
-    border-bottom-right-radius: 4px;
-    padding: 0.3em 0em 0.4em 0em;
-    -webkit-transition: all 0.5s;
-    transition: all 0.5s;
-}
-
-.h-search button i{
-    color: #fff;
-    font-size: 23px;
-    opacity: 0.9;
-    -webkit-transition: all 0.5s;
-    transition: all 0.5s;
-}
-.h-search button i:hover{
-    color: #a00f99;
-}
-
-.h-search i{
-    margin-top: 0.2em;
+.navbar-brand img{
     width: 100%;
     height: 100%;
+}
+.navbar-collapse{
+    height: 57px !important;
+    margin-left: 4rem!important;
+}
+
+.f-search{
+    width: 37%;
+    height: 100%;
+    margin: 0 auto;
+    display: block;
+}
+.f-search input{
+    border-radius: 2px;
+}
+.f-search button{
+    width: 50px;
+    height: 38px;
+    display: inline-block;
+    top: 0;
+    left: 0;
+    border: none;
+    background: #333!important;
     color: #fff;
-    font-size: 23px;
-    opacity: 0.9;
-    
-}
-
-.h-search input {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  border: 0;
-  color: inherit;
-  font: inherit;
-  outline: 0;
-}
-
-.h-button{
-    height: 100%;
-}
-.h-button ul{
-    height: 100%;
-    width: 80%;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: space-between;
-}
-.h-button ul li{
-    height: 100%;
-    float: left;
-    margin-right: 10px;
-    margin-left: 10px;
-}
-.h-button ul li a{
-    color: #fff;
-    text-decoration: none;
-    padding: 0.5em 1em;
-    font-size: 14px;
-    opacity: 0.9;
-    -webkit-transition: all 0.3s;
-    transition: all 0.3s;
-}
-
-.h-button ul li a:hover{
-    color: #a00f99;
-}
-.h-button ul li a i{
+    border-radius: 0 2px 2px 0;
     font-size: 20px;
 }
-.nav-link{
-    margin-left: 1rem;
-    margin-right: 1rem;
-    color: #fff!important;
-    font-size: 14px;
-    opacity: 0.9;
+
+.navbar-nav{
+    width: 100%;
+}
+.navbar-nav li{
+    float: left;
+    margin: 1rem 1rem;
+    cursor: pointer;
     -webkit-transition: all 0.3s;
     transition: all 0.3s;
 }
-.nav-link:hover{
-    color: #a00f99!important;
+
+.nav-link{
+    padding: 0!important;
+    color: rgb(255, 255, 255) !important;
 }
-
-
-
+.nav-item i{
+    font-size: 1.5em;
+    color: rgb(255, 255, 255);
+}
+/* header-bottom */
+.h-bottom{
+    background-color: #252525;
+    overflow: hidden;
+    height: auto;
+    padding: 0.5em 0;
+}
+.h-bottom .row{
+    height: 100%;
+    margin-left: 10rem;
+    margin-right: 10rem;
+}
+.h-bottom .row .col{
+    height: 100%;
+    padding: 0 0;
+    color: #fafafa;
+    float: left;
+    font-size: 15px;
+    cursor: pointer;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.h-bottom .row .col:hover{
+    color: #f341d5;
+}
