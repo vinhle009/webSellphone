@@ -9,6 +9,7 @@
 <body>
 	<div>
 		<h1>Danh sach sinh vien</h1>
+		<a th:href="@{/student/form}">Thêm sinh viên</a>
 		<table>
 			<tbody>
 				<tr>
@@ -16,12 +17,14 @@
 					<td>Id</td>
 					<td>First Name</td>
 					<td>Email</td>
+					<td>Action</td>
 				</tr>
 				<tr th:each="item,iterStat : ${students}">
 					<td th:text="${iterStat.index+1}"></td>
 					<td th:text="${item.id}"></td>
 					<td th:text="${item.name}"></td>
 					<td th:text="${item.email}"></td>
+					<td><a th:href="@{'/student/delete/'+${item.id}}">Xóa</a></td>
 				</tr>
 		</table>
 	</div>
