@@ -344,6 +344,9 @@ body {
 .item img {
   max-width: 100% !important;
 }
+.slide-hangdt .item {
+  cursor: pointer;
+}
 
 .course-filter{
   margin: 0em 0em 0em 0em !important;
