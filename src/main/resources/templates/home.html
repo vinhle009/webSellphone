@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
+
 <head>
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Trang chủ</title>
 <!-- link-css -->
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -46,7 +46,7 @@
 					<ul class="navbar-nav">
 						<li class="nav-item text-center"><a class="nav-link"><i
 								class="fa fa-newspaper-o" aria-hidden="true"></i></a> <a
-							class="nav-link h-text" href="/news">Thông tin hay</a></li>
+							class="nav-link h-text" href="#">Thông tin hay</a></li>
 						<li class="nav-item text-center"><a class="nav-link"><i
 								class="fa fa-file-text" aria-hidden="true"></i></a> <a
 							class="nav-link h-text" href="#">Thanh toán & dịch vụ</a></li>
@@ -358,58 +358,71 @@
 					</div>
 					<div class="col-6">
 						<div class="form-check">
-							<input class="form-check-input" type="checkbox" value=""
-								id="flexCheckDefault" checked> <label
-								class="form-check-label" for="flexCheckDefault"> Tất cả
+							<input class="form-check-input checkHangDTALL" type="checkbox"
+								value="all" id="flexCheckDefault" onclick="checkBoxDTAll()">
+							<label class="form-check-label" for="flexCheckDefault">
+								Tất cả </label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input check-hangDT" type="checkbox"
+								value="samsung" id="flexCheckChecked"
+								onclick="checkBoxDT('samsung')"> <label
+								class="form-check-label" for="flexCheckChecked"> Samsung
 							</label>
 						</div>
 						<div class="form-check">
-							<input class="form-check-input" type="checkbox" value=""
-								id="flexCheckChecked"> <label class="form-check-label"
-								for="flexCheckChecked"> Samsung </label>
+							<input class="form-check-input check-hangDT" type="checkbox"
+								value="xiaomi" id="flexCheckChecked"
+								onclick="checkBoxDT('xiaomi')"> <label
+								class="form-check-label" for="flexCheckChecked"> Xiaomi
+							</label>
 						</div>
 						<div class="form-check">
-							<input class="form-check-input" type="checkbox" value=""
-								id="flexCheckChecked"> <label class="form-check-label"
-								for="flexCheckChecked"> Xiaomi </label>
+							<input class="form-check-input check-hangDT" type="checkbox"
+								value="asus" id="flexCheckChecked" onclick="checkBoxDT('asus')">
+							<label class="form-check-label" for="flexCheckChecked">
+								Asus </label>
 						</div>
 						<div class="form-check">
-							<input class="form-check-input" type="checkbox" value=""
-								id="flexCheckChecked"> <label class="form-check-label"
-								for="flexCheckChecked"> Asus </label>
-						</div>
-						<div class="form-check">
-							<input class="form-check-input" type="checkbox" value=""
-								id="flexCheckChecked"> <label class="form-check-label"
-								for="flexCheckChecked"> Masstel </label>
+							<input class="form-check-input check-hangDT" type="checkbox"
+								value="masstel" id="flexCheckChecked"
+								onclick="checkBoxDT('masstel')"> <label
+								class="form-check-label" for="flexCheckChecked"> Masstel
+							</label>
 						</div>
 					</div>
 					<div class="col-6">
 						<div class="form-check">
-							<input class="form-check-input" type="checkbox" value=""
-								id="flexCheckDefault" checked> <label
+							<input class="form-check-input check-hangDT" type="checkbox"
+								value="iphone" id="flexCheckDefault"
+								onclick="checkBoxDT('iphone')"> <label
 								class="form-check-label" for="flexCheckDefault">
 								Apple(iPhone) </label>
 						</div>
 						<div class="form-check">
-							<input class="form-check-input" type="checkbox" value=""
-								id="flexCheckChecked"> <label class="form-check-label"
-								for="flexCheckChecked"> OPPO </label>
+							<input class="form-check-input check-hangDT" type="checkbox"
+								value="oppo" id="flexCheckChecked" onclick="checkBoxDT('oppo')">
+							<label class="form-check-label" for="flexCheckChecked">
+								OPPO </label>
 						</div>
 						<div class="form-check">
-							<input class="form-check-input" type="checkbox" value=""
-								id="flexCheckChecked"> <label class="form-check-label"
-								for="flexCheckChecked"> Realme </label>
+							<input class="form-check-input check-hangDT" type="checkbox"
+								value="realme" id="flexCheckChecked"
+								onclick="checkBoxDT('realme')"> <label
+								class="form-check-label" for="flexCheckChecked"> Realme
+							</label>
 						</div>
 						<div class="form-check">
-							<input class="form-check-input" type="checkbox" value=""
-								id="flexCheckChecked"> <label class="form-check-label"
-								for="flexCheckChecked"> Vivo </label>
+							<input class="form-check-input check-hangDT" type="checkbox"
+								value="vivo" id="flexCheckChecked" onclick="checkBoxDT('vivo')">
+							<label class="form-check-label" for="flexCheckChecked">
+								Vivo </label>
 						</div>
 						<div class="form-check">
-							<input class="form-check-input" type="checkbox" value=""
-								id="flexCheckChecked"> <label class="form-check-label"
-								for="flexCheckChecked"> Nokia </label>
+							<input class="form-check-input check-hangDT" type="checkbox"
+								value="nokia" id="flexCheckChecked"
+								onclick="checkBoxDT('nokia')"> <label
+								class="form-check-label" for="flexCheckChecked"> Nokia </label>
 						</div>
 					</div>
 				</div>
@@ -592,35 +605,73 @@
 						<div class="col-md-auto">
 							<div class="row slide-hangdt text-center">
 								<div class="col item">
+									<a href="/sanpham/iphone">
 									<img src="../img/icon/637340490193124614_iPhone-Apple@2x.webp"
-										alt="">
+										alt="" onclick="fillterIconHangDT('iphone')">
+									</a>
 								</div>
 								<div class="col item">
-									<img src="../img/icon/637340490904217021_Samsung@2x.jpg" alt="">
+									<!-- <a href=""> -->
+									<img src="../img/icon/637340490904217021_Samsung@2x.jpg" alt=""
+										onclick="fillterIconHangDT('samsung')">
+									<!-- </a> -->
+
 								</div>
 								<div class="col item">
-									<img src="../img/icon/637340491304997311_Oppo@2x.jpg" alt="">
+									<!-- <a href=""> -->
+									<img src="../img/icon/637340491304997311_Oppo@2x.jpg" alt=""
+										onclick="fillterIconHangDT('oppo')">
+									<!-- </a> -->
+
 								</div>
 								<div class="col item">
-									<img src="../img/icon/637340491898745716_Realme@2x.jpg" alt="">
+									<a href=""> <img
+										src="../img/icon/637340491898745716_Realme@2x.jpg" alt=""
+										onclick="fillterIconHangDT('realme')">
+									</a>
+
 								</div>
 								<div class="col item">
-									<img src="../img/icon/637340491898901930_Masstel@2x.jpg" alt="">
+									<a href=""> <img
+										src="../img/icon/637340491898901930_Masstel@2x.jpg" alt=""
+										onclick="fillterIconHangDT('masstel')">
+									</a>
+
 								</div>
 								<div class="col item">
-									<img src="../img/icon/637340493755614653_Nokia@2x.jpg" alt="">
+									<a href=""> <img
+										src="../img/icon/637340493755614653_Nokia@2x.jpg" alt=""
+										onclick="fillterIconHangDT('nokia')">
+									</a>
+
 								</div>
 								<div class="col item">
-									<img src="../img/icon/637582325361253577_Xiaomi@2x.jpg" alt="">
+									<a href=""> <img
+										src="../img/icon/637582325361253577_Xiaomi@2x.jpg" alt=""
+										onclick="fillterIconHangDT('xiaomi')">
+									</a>
+
 								</div>
 								<div class="col item">
-									<img src="../img/icon/637705137962743415_Tecno@2x.jpg" alt="">
+									<a href=""> <img
+										src="../img/icon/637705137962743415_Tecno@2x.jpg" alt=""
+										onclick="fillterIconHangDT('tecno')">
+									</a>
+
 								</div>
 								<div class="col item">
-									<img src="../img/icon/637732077455069770_Asus@2x.webp" alt="">
+									<a href=""> <img
+										src="../img/icon/637732077455069770_Asus@2x.webp" alt=""
+										onclick="fillterIconHangDT('asus')">
+									</a>
+
 								</div>
 								<div class="col item">
-									<img src="../img/icon/637967768466618842_vivo-icon.jpg" alt="">
+									<a href=""> <img
+										src="../img/icon/637967768466618842_vivo-icon.jpg" alt=""
+										onclick="fillterIconHangDT('vivo')">
+									</a>
+
 								</div>
 							</div>
 						</div>
@@ -632,26 +683,39 @@
 							</button>
 						</div>
 					</div>
+					<div class="row" id="locTheo">
+						<p>
+						<h5>Lọc theo:</h5>
+						<h5 id="fillterDT">
+							<i class="fa fa-times" id="locTheoDelete" aria-hidden="true">Xóa
+								tất cả</i>
+						</h5>
+						</p>
+					</div>
 				</div>
 				<div class="row course shadow-sm p-3 mb-5 bg-body rounded">
-					<div class="card" style="width: 18rem;" th:each="item,iterStat : ${sanphams}">
-						<img th:src="@{${item.dsImg[0]}}" class="card-img-top"
-							alt="...">
+					<div class="card" style="width: 18rem;"
+						th:each="item,iterStat : ${sanphams}">
+						<img th:src="@{${item.dsImg[0]}}" class="card-img-top" alt="...">
 						<div class="card-body float-sm-start">
 							<h5 class="card-title" th:text="${item.tenSanpham}"></h5>
-							<p class="card-text d-flex align-items-center" style="margin-left: 0rem !important;">
+							<p class="card-text d-flex align-items-center"
+								style="margin-left: 0rem !important;">
 								<box-icon name='chip'></box-icon>
 								<span th:text="${item.chip}"></span>
 							</p>
-							<p class="card-text  d-flex align-items-center" style="margin-left: 0rem !important;">
+							<p class="card-text  d-flex align-items-center"
+								style="margin-left: 0rem !important;">
 								<box-icon name='mobile-alt'></box-icon>
 								<span th:text="${item.manHinh +' inch'}"></span>
-							</p> 
-							<p class="card-text  d-flex align-items-center" style="margin-left: 0rem !important;">
+							</p>
+							<p class="card-text  d-flex align-items-center"
+								style="margin-left: 0rem !important;">
 								<box-icon name='hdd'></box-icon>
 								<span th:text="${item.rom + ' GB'}"></span>
 							</p>
-							<p class="card-text  d-flex align-items-center" style="margin-left: 0rem !important;">
+							<p class="card-text  d-flex align-items-center"
+								style="margin-left: 0rem !important;">
 								<box-icon name='microchip'></box-icon>
 								<span th:text="${item.ram + ' GB'}"></span>
 							</p>
@@ -660,7 +724,6 @@
 								aria-hidden="true">Xem chi tiết</i></a>
 						</div>
 					</div>
-					
 					<div class="row d-flex justify-content-center text-center">
 						<a href="" id="xemthem"><i class="fa fa-chevron-down"
 							aria-hidden="true"></i>&ensp;Xem thêm</a> <a href="" id="thugon"><i
@@ -741,6 +804,8 @@
 	<!-- footer-end -->
 </body>
 
+
+
 <!-- Swiper JS -->
 <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
@@ -768,6 +833,7 @@
 		$(".father-hoverphukien").mouseleave(function() {
 			$(".father-hoverphukien").hide();
 		});
+
 		$("#menu-user").mouseleave(function() {
 			$("#menu-user").hide();
 		});

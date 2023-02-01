@@ -1,7 +1,6 @@
 package com.example.services;
 
 import java.util.List;
-import java.util.Optional;
 
 import com.example.mdoel.SanPham;
 
@@ -22,13 +21,18 @@ public interface SanPhamService {
 	Iterable<SanPham> findAllById(Iterable<Integer> ids);
 
 	List<SanPham> findAll();
+	
 
 	boolean existsById(Integer id);
 
-	Optional<SanPham> findById(Integer id);
+	SanPham findById(Integer id);
 
 	List<SanPham> saveAll(List<SanPham> entities);
 
 	SanPham save(SanPham sanPham);
+
+	List<SanPham> findBytenSanpham(String tenSanpham);
+	
+	List<SanPham> findBySlug(String slug);
 
 }

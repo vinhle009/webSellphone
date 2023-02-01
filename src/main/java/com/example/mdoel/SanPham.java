@@ -1,8 +1,6 @@
 package com.example.mdoel;
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import jakarta.persistence.CollectionTable;
@@ -42,6 +40,10 @@ public class SanPham implements Serializable {
 
 	@Column(name = "gia", columnDefinition = "decimal(10,2)")
 	private double gia;
+	
+	@Column(name = "slug",length = 50)
+	private String slug;
+	
 
 	public SanPham() {
 		super();
@@ -62,6 +64,20 @@ public class SanPham implements Serializable {
 		this.rom = rom;
 		this.ram = ram;
 		this.gia = gia;
+	}
+
+
+
+
+	public String getSlug() {
+		return slug;
+	}
+
+
+
+
+	public void setSlug(String slug) {
+		this.slug = slug;
 	}
 
 

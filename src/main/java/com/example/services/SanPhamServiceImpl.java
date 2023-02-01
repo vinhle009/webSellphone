@@ -1,7 +1,6 @@
 package com.example.services;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,8 +24,8 @@ public class SanPhamServiceImpl implements SanPhamService{
 	}
 
 	@Override
-	public Optional<SanPham> findById(Integer id) {
-		return repsitories.findById(id);
+	public SanPham findById(Integer id) {
+		return repsitories.findById(id).get();
 	}
 
 	@Override
@@ -73,7 +72,17 @@ public class SanPhamServiceImpl implements SanPhamService{
 	public void deleteAll() {
 		repsitories.deleteAll();
 	}
-	
-	
 
+
+	@Override
+	public List<SanPham> findBytenSanpham(String tenSanpham) {
+		// TODO Auto-generated method stub
+		return repsitories.findByTenSanpham(tenSanpham);
+	}
+
+	@Override
+	public List<SanPham> findBySlug(String slug) {
+		// TODO Auto-generated method stub
+		return repsitories.findBySlug(slug);
+	}
 }
