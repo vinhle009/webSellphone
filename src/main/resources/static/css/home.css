@@ -299,12 +299,7 @@ body {
   border-radius: 4px;margin-right: 0.5em;
   cursor: pointer;
 }
-#locTheoDelete{
-  border: 1px solid black;
-  padding: 1px 1px;
-  border-radius: 4px;margin-right: 0.5em;
-  cursor: pointer;
-}
+
 .slide-hangdt img:hover {
 	transform: scale(1.2);
 }
