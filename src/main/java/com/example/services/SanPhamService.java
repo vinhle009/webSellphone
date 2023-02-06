@@ -33,6 +33,14 @@ public interface SanPhamService {
 
 	List<SanPham> findBytenSanpham(String tenSanpham);
 	
-	List<SanPham> findBySlug(String slug);
+	List<SanPham> findByLoaiSanpham(String loaiSanpham);
+	
+	List<SanPham> findBySlug(String brand,String slug);
+	
+	List<SanPham> findMutiProducts(String loaiSanpham, String slug,double minprice,double maxprice);
+	
+	List<SanPham> findByPrice(String loaiSanpham, double minprice,double maxprice);
+	
+	List<SanPham> findByBestsellerProduct(String loaiSanpham,String bestseller);
 
 }

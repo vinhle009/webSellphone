@@ -7,9 +7,10 @@ import org.springframework.stereotype.Service;
 
 import com.example.mdoel.SanPham;
 import com.example.repositories.SanPhamRepsitories;
+
 @Service
-public class SanPhamServiceImpl implements SanPhamService{
-	
+public class SanPhamServiceImpl implements SanPhamService {
+
 	@Autowired
 	SanPhamRepsitories repsitories;
 
@@ -73,7 +74,6 @@ public class SanPhamServiceImpl implements SanPhamService{
 		repsitories.deleteAll();
 	}
 
-
 	@Override
 	public List<SanPham> findBytenSanpham(String tenSanpham) {
 		// TODO Auto-generated method stub
@@ -81,8 +81,33 @@ public class SanPhamServiceImpl implements SanPhamService{
 	}
 
 	@Override
-	public List<SanPham> findBySlug(String slug) {
+	public List<SanPham> findBySlug(String brand, String slug) {
 		// TODO Auto-generated method stub
-		return repsitories.findBySlug(slug);
+		return repsitories.findBySlug(brand, slug);
 	}
+
+	@Override
+	public List<SanPham> findByLoaiSanpham(String loaiSanpham) {
+		// TODO Auto-generated method stub
+		return repsitories.findByLoaiSanpham(loaiSanpham);
+	}
+
+	@Override
+	public List<SanPham> findByBestsellerProduct(String loaiSanpham, String bestseller) {
+		// TODO Auto-generated method stub
+		return repsitories.findByBestsellerProduct(loaiSanpham, bestseller);
+	}
+
+	@Override
+	public List<SanPham> findMutiProducts(String loaiSanpham, String slug, double minprice, double maxprice) {
+		// TODO Auto-generated method stub
+		return repsitories.findMutiProducts(loaiSanpham, slug, minprice, maxprice);
+	}
+
+	@Override
+	public List<SanPham> findByPrice(String loaiSanpham, double minprice, double maxprice) {
+		// TODO Auto-generated method stub
+		return repsitories.findByPrice(loaiSanpham, minprice, maxprice);
+	}
+
 }

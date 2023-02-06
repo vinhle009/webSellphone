@@ -69,12 +69,34 @@
             <fieldset enabled>
               <legend>Thêm sản phẩm vào cửa hàng</legend>
               <div class="mb-3">
-                <label for="disabledTextInput" class="form-label">ID:</label>
-                <input type="text" id="disabledTextInput" class="form-control" placeholder="id..." name="id">
+                <label for="disabledTextInput" class="form-label">Loại sản phẩm(dienthoai/tablet/phukien):</label>
+                <select id="disabledTextInput" class="form-select" name="loaiSanpham">
+                  <option>dienthoai</option>
+                  <option>tablet</option>
+                  <option>phukien</option>
+                </select>
               </div>
               <div class="mb-3">
                 <label for="disabledTextInput" class="form-label">TÊN SẢN PHẨM:</label>
                 <input type="text" id="disabledTextInput" class="form-control" placeholder="tên..." name="tenSanpham">
+              </div>
+              <div class="mb-3">
+                <label for="disabledTextInput" class="form-label">Slug:</label>
+                <select id="disabledTextInput" class="form-select" name="slug">
+                  <option>iphone</option>
+                  <option>samsung</option>
+                  <option>oppo</option>
+                  <option>xiaomi</option>
+                  <option>vivo</option>
+                  <option>realme</option>
+                </select>
+              </div>            
+              <div class="mb-3">
+                <label for="disabledTextInput" class="form-label">bestSeller:</label>
+                <select id="disabledTextInput" class="form-select" name="bestSeller">
+                  <option>true</option>
+                  <option>false</option>               
+                </select>
               </div>
               <div class="mb-3">
                 <label for="disabledTextInput" class="form-label">HÌNH ẢNH(*.jpg,*.png):</label>
@@ -126,4 +148,37 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
   integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  let tenSanpham = document.querySelector('input[name="tenSanpham"]');
+  let slug = document.querySelector('select[name="slug"]');
+  let valueTensanpham = tenSanpham.value;
+  tenSanpham.addEventListener('keyup', function () {
+    valueTensanpham = tenSanpham.value;
+    valueTensanpham=valueTensanpham.toLowerCase();
+    let arrayTensanpham = valueTensanpham.split(' ');
+    arrayTensanpham.forEach(element => {
+      if (element == 'iphone') {
+        slug.value = 'iphone';
+      }
+      if (element == 'samsung') {
+        slug.value = 'samsung';
+      }
+      if (element == 'oppo') {
+        slug.value = 'oppo';
+      }
+      if (element == 'xiaomi') {
+        slug.value = 'xiaomi';
+      }
+      if (element == 'vivo') {
+        slug.value = 'vivo';
+      }
+      if (element == 'realme') {
+        slug.value = 'realme';
+      }
+    });
+  });
+
+ 
+  
+</script>
 </html>

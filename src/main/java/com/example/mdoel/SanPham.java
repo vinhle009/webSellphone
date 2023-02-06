@@ -44,6 +44,12 @@ public class SanPham implements Serializable {
 	@Column(name = "slug",length = 50)
 	private String slug;
 	
+	@Column(name = "loaiSanpham", length = 50)
+	private String loaiSanpham;
+	
+	@Column(name = "bestSeller",length = 50)
+	private String bestSeller;
+	
 
 	public SanPham() {
 		super();
@@ -51,10 +57,8 @@ public class SanPham implements Serializable {
 	}
 
 
-	
-
 	public SanPham(int id, String tenSanpham, Set<String> dsImg, String chip, double manHinh, int rom, int ram,
-			double gia) {
+			double gia, String slug, String loaiSanpham, String bestSeller) {
 		super();
 		this.id = id;
 		this.tenSanpham = tenSanpham;
@@ -64,23 +68,30 @@ public class SanPham implements Serializable {
 		this.rom = rom;
 		this.ram = ram;
 		this.gia = gia;
-	}
-
-
-
-
-	public String getSlug() {
-		return slug;
-	}
-
-
-
-
-	public void setSlug(String slug) {
 		this.slug = slug;
+		this.loaiSanpham = loaiSanpham;
+		this.bestSeller = bestSeller;
 	}
 
 
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
+	public String getTenSanpham() {
+		return tenSanpham;
+	}
+
+
+	public void setTenSanpham(String tenSanpham) {
+		this.tenSanpham = tenSanpham;
+	}
 
 
 	public Set<String> getDsImg() {
@@ -88,75 +99,96 @@ public class SanPham implements Serializable {
 	}
 
 
-
-
 	public void setDsImg(Set<String> dsImg) {
 		this.dsImg = dsImg;
 	}
 
 
-
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getTenSanpham() {
-		return tenSanpham;
-	}
-
-	public void setTenSanpham(String tenSanpham) {
-		this.tenSanpham = tenSanpham;
-	}
-
 	public String getChip() {
 		return chip;
 	}
+
 
 	public void setChip(String chip) {
 		this.chip = chip;
 	}
 
+
 	public double getManHinh() {
 		return manHinh;
 	}
+
 
 	public void setManHinh(double manHinh) {
 		this.manHinh = manHinh;
 	}
 
+
 	public int getRom() {
 		return rom;
 	}
+
 
 	public void setRom(int rom) {
 		this.rom = rom;
 	}
 
+
 	public int getRam() {
 		return ram;
 	}
+
 
 	public void setRam(int ram) {
 		this.ram = ram;
 	}
 
+
 	public double getGia() {
 		return gia;
 	}
+
 
 	public void setGia(double gia) {
 		this.gia = gia;
 	}
 
+
+	public String getSlug() {
+		return slug;
+	}
+
+
+	public void setSlug(String slug) {
+		this.slug = slug;
+	}
+
+
+	public String getLoaiSanpham() {
+		return loaiSanpham;
+	}
+
+
+	public void setLoaiSanpham(String loaiSanpham) {
+		this.loaiSanpham = loaiSanpham;
+	}
+
+
+	public String getBestSeller() {
+		return bestSeller;
+	}
+
+
+	public void setBestSeller(String bestSeller) {
+		this.bestSeller = bestSeller;
+	}
+
+
 	@Override
 	public String toString() {
-		return "SanPham [id=" + id + ", tenSanpham=" + tenSanpham + ", chip=" + chip + ", manHinh=" + manHinh + ", rom="
-				+ rom + ", ram=" + ram + ", gia=" + gia + "]";
+		return "SanPham [id=" + id + ", tenSanpham=" + tenSanpham + ", dsImg=" + dsImg + ", chip=" + chip + ", manHinh="
+				+ manHinh + ", rom=" + rom + ", ram=" + ram + ", gia=" + gia + ", slug=" + slug + ", loaiSanpham="
+				+ loaiSanpham + ", bestSeller=" + bestSeller + "]";
 	}
 
 }

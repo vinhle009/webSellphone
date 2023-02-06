@@ -2,9 +2,9 @@
 $(document).ready(function () {
   const nav = document.querySelectorAll(".nav-menu");
 
+
   $(".checkHangDTALL").prop("checked", true);
   $("#locTheo").hide();
-  $("#locTheoDelete").hide();
 
   $(".father-hoverdt").hide();
   $(".father-hovertablet").hide();
@@ -60,38 +60,6 @@ $(document).ready(function () {
 
   $('#xemthem').click(xemThemCourse);
   $('#thugon').click(thuGonCourse);
-
-
-  //envent click icon fillter điện thoại
-  const textFillter = document.getElementById("textFillter");
-  textFillter.style.display = 'none';
-  if (textFillter.innerText == "") {
-    console.log("null");
-  } else {
-    $("#locTheo").show();
-    const nameList = textFillter.innerText.split("&");
-    const   uniqueNames = [...new Set(nameList)];
-    console.log("uniqueNames:" + uniqueNames);
-    uniqueNames.forEach((item) => {
-        if(item == ""){
-            return;
-        }else{
-          const checkFillterDT = document.querySelectorAll('.check-hangDT');
-          const checkFillterDTALL = document.querySelector('.checkHangDTALL');
-          checkFillterDT.forEach((item1) => {
-            if (item1.value == item) {
-              item1.checked = true;
-              checkFillterDTALL.checked = false;
-              createElementI(item);
-            }
-          });
-        }
-    });
-  }
-
-  //envent click icon fillter all
-  
-
 });
 //click xem thêm sản phẩm
 function xemThemCourse(e) {
@@ -143,163 +111,257 @@ function plus(n) {
   prev = next;
 }
 
-// //create element i
-// function createElementI(name) {
-//   const i = document.createElement("i");
-//   const parent = document.getElementById("fillterDT");
-//   i.setAttribute("class", "fa fa-times locTheoText");
-//   i.setAttribute("onclick", "deleteFillter('" + name + "')");
-//   i.setAttribute("value", name);
-//   i.innerText = name;
-//   parent.appendChild(i);
-// }
+//envent fillter san pham
+let checkedBrands = [...new Set()];
+let checkedPrice = [...new Set()];
 
+const checkpricenav = document.querySelectorAll(".check-price-nav");
+checkpricenav.forEach((item) => {
+  item.addEventListener("click", (e) => {
+    $("#locTheo").show();
+    createElement(item.getAttribute("value"));
+    checkedPrice.push(item.getAttribute("value"));
+    const checkprices = document.querySelectorAll(".check-price");
+    checkprices.forEach((items) => {
+      if (items.getAttribute("value") === item.getAttribute("value"))
+        items.checked = true;
+    });
+    $(".checkGiaALL").prop("checked", false);
+    searchProduct();
+  });
+});
 
-
-// //delete element i
-// function deleteFillter(name) {
-//   var brank = "";
-//   uniqueNames = uniqueNames.filter(items => items !== name);
-//   console.log("uniqueNames:"+uniqueNames);
-//   uniqueNames.forEach((item) => {
-//     if (item == "") {
-//       return;
-//     } else {
-//       brank += item + "&";
-//     }
-//   });
-//   console.log("brank:"+brank);
-//   ajaxs(brank);
-  
-//   const i = document.querySelectorAll(".locTheoText");
-//   const checkFillterDT = document.querySelectorAll('.check-hangDT');
-//   const checkFillterDTALL = document.querySelector('.checkHangDTALL');
-//   i.forEach((item) => {
-//     if (item.getAttribute("value") == name) {
-//       item.remove();
-//       checkFillterDT.forEach((item1) => {
-//         if (item1.value == name) {
-//           item1.checked = false;
-//         }
-//       });
-//     }
-//   });
-//   if (i.length == 1) {
-//     $("#locTheo").hide();
-//     checkFillterDTALL.checked = true;
-//   }
-// }
-
-
-
-// function ajaxs(brank) {
-//   $.ajax({
-//     url: '/sanpham/dienthoai/' + brank,
-//     type: 'GET',
-//     dataType: 'html',
-//     data: {
-//       brank: brank,
-//     },
-//     success: function (e) {
-//       location.href = '/sanpham/dienthoai/' + brank;
-//     }
-//   });
-// }
-//checkBoxDT
-function checkBoxDT(name) {
-  const checkFillterDT = document.querySelectorAll('.check-hangDT');
-  checkFillterDT.forEach((item) => {
-   if (item.value == name) {
-     if (item.checked == true) {
+const checkprices = document.querySelectorAll(".check-price");
+checkprices.forEach((item) => {
+  item.addEventListener("change", (e) => {
+    if (e.target.checked) {
       $("#locTheo").show();
-      createElementI(name);
-      getFillterDT(name);
-     } 
-    if (item.checked == false) {
-      const i = document.querySelectorAll(".locTheoText");
-      i.forEach((item1) => {
-        if (item1.getAttribute("value") == name) {
-          item1.remove();
-          getFillterDTDelete(name);
+      createElement(e.target.value);
+      checkedPrice.push(e.target.value);
+      $(".checkGiaALL").prop("checked", false);
+      searchProduct();
+    }
+    if (!e.target.checked) {
+      checkedPrice = checkedPrice.filter(item => item !== e.target.value);
+      deleteElement(e.target.value);
+      if (checkedPrice.length === 0) {
+        $(".checkGiaALL").prop("checked", true);
+        checkedPrice = [];
+      }
+      searchProduct();
+    }
+  });
+});
+
+const checkdienthoais = document.querySelectorAll(".check-dienthoai");
+checkdienthoais.forEach((item) => {
+  item.addEventListener("change", (e) => {
+    if (e.target.checked) {
+      $("#locTheo").show();
+      createElement(e.target.value);
+      checkedBrands.push(e.target.value);
+      $(".checkHangDTALL").prop("checked", false);
+      searchProduct();
+    }
+
+    if (!e.target.checked) {
+      checkedBrands = checkedBrands.filter(item => item !== e.target.value);
+      deleteElement(e.target.value);
+      if (checkedBrands.length === 0) {
+        $(".checkHangDTALL").prop("checked", true);
+        checkedBrands = [];
+      }
+      searchProduct();
+    }
+  });
+});
+
+
+
+function deleteElement(value) {
+  let i = document.querySelectorAll(".locTheoText");
+  const parent = document.getElementById("fillterDT");
+  i.forEach((item) => {
+    if (item.innerText === value) {
+      parent.removeChild(item);
+      checkCountChecked();
+      checkdienthoais.forEach((item) => {
+        if (item.value === value) {
+          item.checked = false;
+          checkedBrands = checkedBrands.filter(item => item !== value);
+          searchProduct();
         }
       });
-      if (i.length == 1) {
-        $("#locTheo").hide();
-      }
-    }
-   }
-  });
-}
-//envent icon fillter điện thoại
-function fillterIconHangDT(name) {
-  $(".checkHangDTALL").prop("checked", false);
-  $("#locTheo").show();
-  const checkFillterDT = document.querySelectorAll('.check-hangDT');
-  checkFillterDT.forEach((item) => {
-    var nameValue = item.getAttribute('value');
-    if (nameValue == name) {
-      item.checked = true;
+
+      checkprices.forEach((item) => {
+        if (item.value === value) {
+          item.checked = false;
+          checkedPrice = checkedPrice.filter(item => item !== value);
+          searchProduct();
+        }
+      });
     }
   });
-  getFillterDT();
 }
-//createElementI
-function createElementI(name) {
+
+function checkCountChecked() {
+  let i = document.querySelectorAll(".locTheoText");
+  if (i.length === 0) {
+    $("#locTheo").hide();
+    $(".checkHangDTALL").prop("checked", true);
+    $(".checkGiaALL").prop("checked", true);
+  }
+}
+
+function createElement(value) {
   const i = document.createElement("i");
   const parent = document.getElementById("fillterDT");
   i.setAttribute("class", "fa fa-times locTheoText");
-  i.setAttribute("onclick", "deleteFillter('" + name + "')");
-  i.setAttribute("value", name);
-  i.innerText = name;
+  i.setAttribute("onclick", "deleteElement(this.innerText)");
+  i.innerText = value;
   parent.appendChild(i);
 }
-//delete element i
-function deleteFillter(name) {
 
-  var i = document.querySelectorAll(".locTheoText");
-  const parent = document.getElementById("fillterDT");
-  const checkFillterDT = document.querySelectorAll('.check-hangDT');
-  i.forEach((item) => {
-    if (item.getAttribute("value") == name) {
-      parent.removeChild(item);
-      checkFillterDT.forEach((item1) => {
-        if (item1.value == name) {
-          item1.checked = false;
-        }
-      });
-    }
-  });
-  getFillterDTDelete();
-}
+// (function ($) {
+//   showSwal = function (type) {
+//     'use strict';
+//     if (type === 'basic') {
+//       swal({
+//         title: 'Không còn sản phảm này!',
+//         text: 'xin mời chọn sản phẩm khác',
+//         button: {
+//           text: "OK",
+//           value: true,
+//           visible: true,
+//           className: "btn btn-primary"
+//         }
+//       })
 
-//getFillterDT
-function getFillterDT() {
-  const checkFillterDT = document.querySelectorAll('.check-hangDT');
-  checkFillterDT.forEach((item) => {
-    if (item.checked == true) {
-      ajax(item.value,"1");
-    }
-  });
-}
-function getFillterDTDelete(e) {
-  const checkFillterDT = document.querySelectorAll('.check-hangDT');
-  checkFillterDT.forEach((item) => {
-    if (item.checked == false) {
-      ajax(item.value,"0");
-    }
-  });
-}
-function ajax(brank,action){
+//     }
+//   }
+
+// })(jQuery);
+
+function searchProduct() {
+  req = {
+    "brands": checkedBrands,
+    "prices": checkedPrice
+  }
+  var myJSON = JSON.stringify(req);
   $.ajax({
-    url: '/sanpham/dienthoai/'+brank+'?'+action,
-    type: 'GET',
-    data:{
-      brank:brank,
-      action:action
+    url: '/api/san-pham/loc',
+    type: 'POST',
+    data: myJSON,
+    contentType: "application/json; charset=utf-8",
+    success: function (data) {
+      genProductList(data);
     },
-    dataType: 'html',
-    success: function (e) {
-      window.location.replace('/sanpham/dienthoai/'+brank+'?'+action);
+    error: function (data) {
+      console.log(data);
     }
   });
+}
+function genProductList(products) {
+  if (products.length > 0) {
+    let html = '';
+    $('.products').html(html);
+    for (product of products) {
+      html +=
+        ` 
+          <div class="card  w3-center w3-animate-opacity" style="width: 18rem;">
+          <img src="${product.dsImg[0]}" class="card-img-top" alt="...">
+          <div class="card-body float-sm-start">
+            <h5 class="card-title" >${product.tenSanpham}</h5>
+            <i>
+              <h5 class="card-title price">${product.gia}</h5>
+            </i>
+            <p class="card-text d-flex align-products-center" style="margin-left: 0rem !important;">
+              <box-icon name='chip'></box-icon>
+              <span>${product.chip}</span>
+            </p>
+            <p class="card-text d-flex align-products-center" style="margin-left: 0rem !important;">
+              <box-icon name='mobile-alt'></box-icon>
+              <span>${product.manHinh + ' inch'}</span>
+            </p>
+            <p class="card-text d-flex align-products-center" style="margin-left: 0rem !important;">
+              <box-icon name='hdd'></box-icon>
+              <span>${product.rom + ' GB'}</span>
+            </p>
+            <p class="card-text d-flex align-products-center" style="margin-left: 0rem !important;">
+              <box-icon name='microchip'></box-icon>
+              <span>${product.ram + ' GB'}</span>
+            </p>
+            <a href="#" class="btn btn-danger">Mua ngay</a> <a
+              href="/show/ + ${product.tenSanpham}" class="btn btn-danger show-course"><i
+                class="fa fa-eye" aria-hidden="true">Xem chi tiết</i></a>
+          </div>
+        </div>
+          `
+    }
+    $('.products').html(html);
+    $('.no-products').css('display', 'none');
+  } else {
+    // swal("Sản phẩm không tồn tại!", "Mời chọn sản phẩm khác", "info");
+  }
+}
+
+$(".checkHangDTALL").click(function () {
+  if (this.checked) {
+    $(".check-dienthoai").prop("checked", false);
+    checkedBrands = [];
+    searchProduct();
+  } else {
+    $(".check-dienthoai").prop("checked", false);
+    checkedBrands = [];
+    searchProduct();
+  }
+});
+
+$(".checkGiaALL").click(function () {
+  if (this.checked) {
+    $(".check-price").prop("checked", false);
+    checkedPrice = [];
+    searchProduct();
+  } else {
+    $(".check-price").prop("checked", false);
+    checkedPrice = [];
+    searchProduct();
+  }
+});
+
+function fillterIconHangDT(name) {
+  $("#locTheo").show();
+  let i = document.querySelectorAll(".locTheoText");
+  const parent = document.getElementById("fillterDT");
+  const checkdienthoais = document.querySelectorAll(".check-dienthoai");
+  if (i.length == 0) {
+    createElement(name);
+    checkedBrands.push(name);
+    checkdienthoais.forEach((item) => {
+      if (item.value === name) {
+        item.checked = true;
+      }
+    });
+    $(".checkHangDTALL").prop("checked", false);
+    searchProduct();
+  } else {
+    checkdienthoais.forEach((item) => {
+      if (item.value === name) {
+        item.checked = true;
+        // searchProduct();
+      }
+    });
+    let check = true;
+    i.forEach((item) => {
+      if (item.innerText === name) {
+        check = false;
+      }
+    });
+    if (check) {
+      createElement(name);
+      checkedBrands.push(name);
+      $(".checkHangDTALL").prop("checked", false);
+      searchProduct();
+    }
+  }
 }

@@ -17,8 +17,8 @@ body {
   font-family: "Fira Sans", sans-serif;
   font-weight: 400;
   box-sizing: border-box;
-  overflow-x: scroll !important;
-  background-color: #F8F9FA !important;
+  background-image: url("https://images.fpt.shop/unsafe/fit-in/filters:quality(95):fill(transparent)/fptshop.com.vn/Uploads/Originals/2023/2/1/638108865177343417_desk-header-bg.png");
+  background-color: rgb(255, 239, 238);
 }
 
 .navbar-light,
@@ -61,7 +61,7 @@ body {
 
 .navbar-nav li a {
   /* margin-left: 2em;
-    margin-right: 2em; */
+      margin-right: 2em; */
   color: aliceblue !important;
   padding: 0 0 0 0 !important;
 }
@@ -259,68 +259,8 @@ body {
   display: none;
   z-index: 1000;
 }
-
-.slide {
-  position: relative;
-  margin-top: 1rem;
-
-}
-
-.content {
-  position: relative;
-  margin-top: 1rem;
-}
-
-.carousel-item img {
-  max-width: 100%;
-}
-
-
-.slide-parent {
-  background-color: rgb(255, 255, 255);
-  display: grid;
-  grid-template-columns: auto auto auto;
-}
-
-.slide-hangdt {
-  background-color: #ffffff;
-}
-
-.slide-hangdt img {
-  max-width: 200% !important;
-  transition: transform .2s;
-}
-
-.locTheoText {
-  border: 1px solid black;
-  padding: 1px 1px;
-  border-radius: 4px;
-  margin-right: 0.5em;
-  cursor: pointer;
-}
-
-.slide-hangdt img:hover {
-  transform: scale(1.2);
-}
-
-.slide-parent button {
-  position: absolute;
-  font-size: 2vw;
-  color: #000000;
-  cursor: pointer;
-  border: none;
-  background-color: #ffffff;
-  opacity: 0.8;
-}
-
-#next {
-  right: 0;
-  margin-right: 1rem;
-}
-
-#prev {
-  left: 0;
-  margin-left: 1rem;
+.sale-cd img{
+  max-width: 80%;
 }
 .course {
   position: relative;
@@ -346,44 +286,6 @@ body {
   font-size: 1em;
   font-weight: 500;
 }
-
-.show-course {
-  background-color: #ffffff !important;
-  border: none !important;
-  color: #000000 !important;
-}
-
-.item img {
-  max-width: 100% !important;
-}
-
-.slide-hangdt .item {
-  cursor: pointer;
-}
-
-.course-filter {
-  margin: 0em 0em 0em 0em !important;
-}
-
-.course-filter .item-filter {
-  font-size: 1vw;
-  font-weight: 500;
-}
-
-.form-check label {
-  font-size: 1vw;
-  font-weight: 400;
-}
-
-.form-check input {
-  font-size: 1vw;
-  font-weight: 400;
-}
-
-.row-filter {
-  margin: 2em 0em !important;
-}
-
 /* css-fooster */
 .footer {
   width: 100% !important;
@@ -425,33 +327,3 @@ body {
   font-size: 1.5rem;
 }
 
-
-
-.loader{
-  /* animation:spin 1.5s linear infinite; */
-  animation-name: spin;
-  animation-duration: 1.5s;
-  /* animation-iteration-count: infinite; */
-  animation-timing-function: linear;
-}
-
-.loader{
-  animation-name: spin;
-  /* animation-iteration-count: infinite; */
-  animation-timing-function: linear;
-  animation-duration: 1.5s;
-}
-
-@keyframes spin{
-  0%{
-   opacity: 0;
-  }
-  100%{
-    opacity: 1;
-  }
-}
-.price{
-  color: #cc0000;
-  font-weight: 600 !important;
-  font-size: 1.3vw !important;
-}
